@@ -36,5 +36,12 @@ Stage 2 --->
 
 
 
-###
+### docker-compose-java-mysql
 ============================================
+
+1) It is used to manage multiple services (conatiner)
+2) To run the container we use pre-built available images in the file, it will run the container from it.
+3) if image not available or need latest version app image, we can put the docker file at root directory where docker compose file is there and built image while running compose up.
+<<used when have frequent code changes in app or dockerfile >>
+4) put environment variable in env file to refer its valae at run time.
+5) depends on says , make up service B only if service A is up and running.
