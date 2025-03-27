@@ -1,0 +1,25 @@
+
+#Stage 1
+
+FROM maven:3.8.5-openjdk-17 AS builder
+
+WORKDIR /app
+
+COPY App.java .
+
+COPY pom.xml .
+
+RUN mvn clean package
+
+#Stage 2
+
+FROM openjdk:17-jdk-slim
+
+WORKDIR /app
+
+COPY --from=builder /app/target/multi-stage-docker-1.0.jar app.jar
+
+CMD ["java", "-jar", "app.jar"]
+
+# Build the image
+
