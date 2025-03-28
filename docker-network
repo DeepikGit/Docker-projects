@@ -1,0 +1,20 @@
+docker pull nginx
+docker pull alpine
+docker images
+docker network create my-br-network
+docker network ls
+docker run -d --network=my-br-network --name web nginx
+docker run -d --network=my-br-network --name alpine ping web
+docker ps
+
+## ping is getting reply as both are in same network
+
+docker run -d --network=my-ho-network --name web2 nginx
+docker run -d --network=my-br-network --name alpine ping web2
+
+# ping is not getting reply as both are in different network
+
+
+docker inspect container
+docker network inspect my-br-network
+ 

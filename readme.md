@@ -45,3 +45,17 @@ Stage 2 --->
 <<used when have frequent code changes in app or dockerfile >>
 4) put environment variable in env file to refer its valae at run time.
 5) depends on says , make up service B only if service A is up and running.
+
+
+### docker network bridge and host network
+================================================
+1) Pulled an image - nginx 
+2) Pulled another image - alpine
+3) created a network - my-bridge-network
+4) run the containers using above metwork
+5) login to alpine and try to ping nginx container.
+6) ping should get reply
+7) now change the network type to host
+8) run another container call web2 using nginx and assign host network
+9) now try to ping web2 , it will not get any reply from alpine as both are in different network.
+
